@@ -1,30 +1,34 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <Navbar />
+  <div class="container">
+    <router-view/>
   </div>
-  <router-view/>
+  <Information class="mt-14"/>
+  <footer>
+    <div class="container mx-auto px-6">
+      <div class="mt-16 border-t-2 border-gray-300 flex flex-col items-center">
+        <div class="sm:w-2/3 text-center py-6">
+          <p class="text-md md:text-2xl text-blue-700 font-open-sans font-bold mb-2">
+            &copy; 2021 by <a href="https://muhammad-rafli.vercel.app/">MUHAMMAD RAFLI</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import Navbar from '@/components/Navbar.vue'
+import Information from '@/components/Information.vue'
 
-#nav {
-  padding: 30px;
+export default {
+  components: {
+    Navbar, Information
+  },
+  created() {
+    AOS.init()
+  },
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+</script>
